@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Book</string>
+    <string name="readmsg">You should read</string>
+</resources>
