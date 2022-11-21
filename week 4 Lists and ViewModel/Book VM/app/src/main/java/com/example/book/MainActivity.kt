@@ -32,8 +32,8 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    fun ScreenSetup(viewModel: BookViewModel = viewModel()){
-        BookScreen(viewModel.bookList, {viewModel.add(it)}, {viewModel.delete(it)})
+    fun ScreenSetup(){
+        BookScreen()
     }
 }
 

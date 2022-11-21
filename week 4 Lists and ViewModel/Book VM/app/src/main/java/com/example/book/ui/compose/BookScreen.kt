@@ -29,11 +29,13 @@ import com.example.book.ui.theme.BookTheme
 import java.util.*
 
 @Composable
-fun BookScreen(bookList:List<Book>, addBook:(Book) -> Unit, deleteBook:(Book) -> Unit) {
+fun BookScreen() {
+    val viewModel: BookViewModel = viewModel()
     val context = LocalContext.current
     var showDialog by remember { mutableStateOf(false) }
 
     Scaffold(
+        backgroundColor = MaterialTheme.colors.surface,
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {showDialog = true}
@@ -44,7 +46,7 @@ fun BookScreen(bookList:List<Book>, addBook:(Book) -> Unit, deleteBook:(Book) ->
         },
         content = {
             if (showDialog){
-                addBookDialog(context, dismissDialog = {showDialog = false}, addBook)
+                addBookDialog(context, dismissDialog = {showDialog = false}, {viewModel.add(it)})
             }
             LazyColumn(
                 contentPadding = PaddingValues(
@@ -53,8 +55,8 @@ fun BookScreen(bookList:List<Book>, addBook:(Book) -> Unit, deleteBook:(Book) ->
                 )
             )
             {
-                items(bookList, key={book -> book.id}) { book ->
-                    BookItem(item = book, context, deleteBook)
+                items(viewModel.bookList, key={book -> book.id}) { book ->
+                    BookItem(item = book, context, {viewModel.delete(it)})
                 }
             }
         }
@@ -175,8 +177,8 @@ fun BookItem(item: Book, context: Context, deleteBook: (Book) -> Unit) {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview(model: BookViewModel = viewModel()) {
+fun DefaultPreview() {
     BookTheme {
-        BookScreen(model.bookList, {model.add(it)}, {model.delete(it)})
+        BookScreen()
     }
 }
