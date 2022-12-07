@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Recipes</string>
+    <string name="recipeName">Recipe name</string>
+    <string name="recipeURL">URL</string>
+    <string name="addRecipe">Add Recipe</string>
+    <string name="add">Add</string>
+    <string name="recipeAdded">Recipe Added</string>
+    <string name="action">Action</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete?</string>
+    <string name="deleteRecipe">Recipe Deleted</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_google_sign_in">GoogleSignInActivity</string>
+    <string name="signin_success">Successfully signed in user</string>
+    <string name="signin_fail">Sign in unsuccessful</string>
+    <string name="action_logged_out">Logged Out</string>
+    <string name="action_login">Login</string>
+
+
+</resources>
